@@ -1,0 +1,13 @@
+{
+  "name": "ananas-royale",
+  "version": "1.0.0",
+  "description": "Luxury Pineapple Product Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y serve . -p 8080",
+    "dev": "npx -y serve . -p 8080"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
