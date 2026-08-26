@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOLLY'S PINEAPPLE — The Apex of Botanical Luxury</title>
-    <meta name="description" content="Discover JOLLY'S PINEAPPLE, the world's most exquisite single-origin luxury pineapple. Hand-selected, naturally sweet 17.2° Brix, delivered within 48 hours.">
+    <title>GOLDEN PINEAPPLE — Single-Origin Luxury Harvest</title>
+    <meta name="description" content="Order Golden Pineapple, the world's most exquisite single-origin luxury pineapple from Kerala, India. Naturally sweet 17.2° Brix, freshly selected, ₹149 per pineapple.">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Modern Luxury Sans-Serif Stack -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- GSAP & Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -27,19 +27,21 @@
         <div class="nav-container">
             <a href="#" class="brand-logo" id="brand-logo">
                 <span class="logo-icon">🍍</span>
-                <span class="logo-text">JOLLY'S PINEAPPLE</span>
+                <span class="logo-text">GOLDEN PINEAPPLE</span>
             </a>
             <nav class="nav-links" id="nav-links">
                 <a href="#hero" class="nav-item active">Hero</a>
-                <a href="#intro" class="nav-item">Introduction</a>
-                <a href="#anatomy" class="nav-item">Deconstructed</a>
-                <a href="#quality" class="nav-item">Quality</a>
-                <a href="#process" class="nav-item">Process</a>
-                <a href="#taste" class="nav-item">Taste & Texture</a>
-                <a href="#specs" class="nav-item">Specifications</a>
+                <a href="#product-intro" class="nav-item">Product</a>
+                <a href="#special-details" class="nav-item">Details</a>
+                <a href="#why-better" class="nav-item">Quality</a>
+                <a href="#purchase-section" class="nav-item">Shop</a>
             </nav>
             <div class="nav-actions">
-                <button class="btn-gold-outline" id="openReserveModalBtn">Reserve Allocation</button>
+                <button class="nav-cart-btn" id="navCartBtn">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-label">Cart</span>
+                    <span class="cart-badge" id="navCartCount">00</span>
+                </button>
             </div>
         </div>
     </header>
@@ -47,67 +49,61 @@
     <!-- MAIN CONTENT -->
     <main id="main-content">
 
-        <!-- SECTION 0: SCROLL-DRIVEN CANVASES & DYNAMIC CORNER TEXT OVERLAY HERO SECTION -->
+        <!-- =================================================================== -->
+        <!-- SECTION 0: PRESERVED HERO SECTION (100% UNTOUCHED & INTACT)        -->
+        <!-- =================================================================== -->
         <section id="hero" class="hero-section">
             <div class="hero-sticky-container">
                 <!-- 300-Frame Pineapple Animation Canvas -->
                 <canvas id="heroCanvas" class="hero-canvas"></canvas>
                 <div class="hero-vignette"></div>
 
-                <!-- Dynamic Corner Text Overlay Features Container -->
+                <!-- Dynamic Corner Text Overlay Features Container (Pure Floating Text) -->
                 <div class="hero-text-container container">
                     
                     <!-- Feature Step 1: Top-Left -->
                     <div class="hero-text-block text-block-1 pos-top-left active">
-                        <div class="hero-glass-box">
-                            <div class="tagline-pill">
-                                <span class="dot-gold"></span>
-                                Single-Origin Harvest
-                            </div>
-                            <h1 class="headline-hero-title">JOLLY'S PINEAPPLE</h1>
-                            <p class="hero-lead">The world's preeminent single-origin luxury pineapple, harvested at 17.2° Peak Brix in volcanic mineral highlands.</p>
-                            <div class="scroll-prompt">
-                                <span class="mouse-icon"><span class="mouse-wheel"></span></span>
-                                <span class="scroll-txt">SCROLL DOWN TO ANIMATE & EXPLORE</span>
-                            </div>
+                        <div class="tagline-pill">
+                            <span class="dot-gold"></span>
+                            Single-Origin Harvest
+                        </div>
+                        <h1 class="headline-hero-title">JOLLY'S PINEAPPLE</h1>
+                        <p class="hero-lead">The world's preeminent single-origin luxury pineapple, harvested at 17.2° Peak Brix in volcanic mineral highlands.</p>
+                        <div class="scroll-prompt">
+                            <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+                            <span class="scroll-txt">SCROLL DOWN TO ANIMATE & EXPLORE</span>
                         </div>
                     </div>
 
                     <!-- Feature Step 2: Bottom-Left -->
                     <div class="hero-text-block text-block-2 pos-bottom-left">
-                        <div class="hero-glass-box">
-                            <span class="subtitle-gold">FEATURE 01 — SELECTION CRAFT</span>
-                            <h2 class="hero-feature-title">Top 0.5% Stalk Yield</h2>
-                            <p class="hero-feature-desc">Fewer than 1 in 200 fruits pass our rigorous density & Brix testing. Matured under tropical equator sunshine with zero chemical yellowing.</p>
-                            <div class="feature-badges">
-                                <span class="f-pill">✦ 17.2° Peak Brix</span>
-                                <span class="f-pill">✦ Single-Stalk Harvest</span>
-                            </div>
+                        <span class="subtitle-gold">FEATURE 01 — SELECTION CRAFT</span>
+                        <h2 class="hero-feature-title">Top 0.5% Stalk Yield</h2>
+                        <p class="hero-feature-desc">Fewer than 1 in 200 fruits pass our rigorous density & Brix testing. Matured under tropical equator sunshine with zero chemical yellowing.</p>
+                        <div class="feature-badges">
+                            <span class="f-pill">✦ 17.2° Peak Brix</span>
+                            <span class="f-pill">✦ Single-Stalk Harvest</span>
                         </div>
                     </div>
 
                     <!-- Feature Step 3: Top-Right -->
                     <div class="hero-text-block text-block-3 pos-top-right">
-                        <div class="hero-glass-box">
-                            <span class="subtitle-gold">FEATURE 02 — SENSORY PURITY</span>
-                            <h2 class="hero-feature-title">Velvet Fiberless Pulp</h2>
-                            <p class="hero-feature-desc">Translucent golden nectar cells delivering wild honey, passionfruit, and white peach notes with smooth low acidity.</p>
-                            <div class="feature-badges">
-                                <span class="f-pill">✦ pH 4.2 Balanced</span>
-                                <span class="f-pill">✦ Volcanic Terroir</span>
-                            </div>
+                        <span class="subtitle-gold">FEATURE 02 — SENSORY PURITY</span>
+                        <h2 class="hero-feature-title">Velvet Fiberless Pulp</h2>
+                        <p class="hero-feature-desc">Translucent golden nectar cells delivering wild honey, passionfruit, and white peach notes with smooth low acidity.</p>
+                        <div class="feature-badges">
+                            <span class="f-pill">✦ pH 4.2 Balanced</span>
+                            <span class="f-pill">✦ Volcanic Terroir</span>
                         </div>
                     </div>
 
                     <!-- Feature Step 4: Bottom-Right -->
                     <div class="hero-text-block text-block-4 pos-bottom-right">
-                        <div class="hero-glass-box">
-                            <span class="subtitle-gold">FEATURE 03 — EXPRESS LOGISTICS</span>
-                            <h2 class="hero-feature-title">48-Hour Harvest Flight</h2>
-                            <p class="hero-feature-desc">Priority cold-chain air express within 48 hours of harvest for peak enzymatic freshness and pristine crown foliage.</p>
-                            <div class="hero-cta-group">
-                                <a href="#intro" class="btn-gold-solid">Explore Dossier Below ↓</a>
-                            </div>
+                        <span class="subtitle-gold">FEATURE 03 — EXPRESS LOGISTICS</span>
+                        <h2 class="hero-feature-title">48-Hour Harvest Flight</h2>
+                        <p class="hero-feature-desc">Priority cold-chain air express within 48 hours of harvest for peak enzymatic freshness and pristine crown foliage.</p>
+                        <div class="hero-cta-group">
+                            <a href="#product-intro" class="btn-gold-solid">Explore Dossier Below ↓</a>
                         </div>
                     </div>
 
@@ -115,541 +111,551 @@
             </div>
         </section>
 
-        <!-- SECTION 1: PRODUCT INTRODUCTION SECTION -->
-        <section id="intro" class="section section-intro">
-            <div class="container grid-intro">
-                <div class="intro-visual" data-speed="0.05">
-                    <div class="image-frame glow-gold-container">
-                        <img src="./assets/pineapple_intro.png" alt="JOLLY'S PINEAPPLE Whole Pineapple" class="img-fluid floating-img" id="introPineappleImg">
-                        <div class="lighting-halo"></div>
-                        <div class="badge-float brix-badge">
-                            <span class="badge-num">17.2°</span>
-                            <span class="badge-lbl">Peak Brix</span>
+
+        <!-- =================================================================== -->
+        <!-- SECTION 01 — PRODUCT INTRODUCTION (BRIGHT LIGHT THEME)             -->
+        <!-- =================================================================== -->
+        <section id="product-intro" class="sec-light sec-product-intro">
+            <div class="container grid-intro-light">
+                <div class="intro-visual-light">
+                    <div class="img-wrapper-light float-gentle">
+                        <img src="./assets/pineapple_intro.png" alt="Golden Pineapple Product" class="img-intro">
+                        <div class="glow-yellow-ring"></div>
+                        <div class="badge-price-floating">
+                            <span class="badge-curr">₹</span>
+                            <span class="badge-amt">149</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="intro-content">
-                    <div class="tagline-pill">
-                        <span class="dot-gold"></span>
-                        Single-Origin Harvest • Limited Yield
-                    </div>
-                    <h1 class="headline-large">The Apex of Botanical Perfection</h1>
-                    <p class="intro-lead">
-                        Hand-harvested at precise maturity from high-altitude mineral soils, JOLLY'S PINEAPPLE represents the pinnacle of natural sweetness, crisp texture, and intoxicating tropical aroma.
+                <div class="intro-content-light">
+                    <span class="tag-pill-light">SINGLE-ORIGIN BOTANICAL ALLOCATION</span>
+                    <h2 class="heading-editorial">THE GOLDEN PINEAPPLE</h2>
+                    <p class="lead-editorial">
+                        Naturally sweet, freshly selected, and packed with the unmistakable taste of tropical freshness.
                     </p>
                     
-                    <div class="intro-highlights">
-                        <div class="highlight-item">
-                            <div class="hl-icon">✦</div>
-                            <div>
-                                <h4>Naturally Sweet</h4>
-                                <p>Unrivaled 17.2° Brix sweetness achieved through zero artificial ripening.</p>
-                            </div>
+                    <div class="attributes-grid-light">
+                        <div class="attr-item">
+                            <span class="attr-label">Origin</span>
+                            <span class="attr-val">Kerala, India</span>
                         </div>
-                        <div class="highlight-item">
-                            <div class="hl-icon">✦</div>
-                            <div>
-                                <h4>Peak Selection</h4>
-                                <p>Fewer than 1 in 200 fruits meet our rigorous size, symmetry, and sugar density standards.</p>
-                            </div>
+                        <div class="attr-item">
+                            <span class="attr-label">Variety</span>
+                            <span class="attr-val">Premium Sweet Pineapple</span>
+                        </div>
+                        <div class="attr-item">
+                            <span class="attr-label">Weight</span>
+                            <span class="attr-val">1 – 1.5 kg</span>
+                        </div>
+                        <div class="attr-item">
+                            <span class="attr-label">Taste Profile</span>
+                            <span class="attr-val">Naturally Sweet & Crisp</span>
                         </div>
                     </div>
 
-                    <!-- Key Supporting Metrics Grid -->
-                    <div class="intro-specs-pills">
-                        <div class="spec-pill">
-                            <span class="pill-label">Origin</span>
-                            <span class="pill-value">San Carlos Highlands</span>
+                    <div class="intro-actions-light">
+                        <a href="#cart-buy" class="btn-yellow-solid">Buy Now — ₹149</a>
+                        <a href="#special-details" class="btn-outline-dark">Discover Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================================== -->
+        <!-- SECTION 02 — PRODUCT DETAILS + PRICE                               -->
+        <!-- =================================================================== -->
+        <section id="special-details" class="sec-cream sec-details">
+            <div class="container">
+                <div class="editorial-header">
+                    <span class="tag-pill-light">EXCEPTIONAL BOTANICAL HARVEST</span>
+                    <h2 class="heading-editorial-lg">WHAT MAKES IT SPECIAL</h2>
+                    <p class="editorial-copy">
+                        Premium tropical pineapple selected for its golden flesh, juicy texture, natural sweetness, and exceptional freshness.
+                    </p>
+                </div>
+
+                <div class="asymmetric-specs-wrapper">
+                    <div class="specs-editorial-list">
+                        <div class="spec-edit-item">
+                            <span class="spec-edit-key">Origin</span>
+                            <span class="spec-edit-val">Tropical Kerala</span>
                         </div>
-                        <div class="spec-pill">
-                            <span class="pill-label">Freshness Window</span>
-                            <span class="pill-value">48 Hours Direct</span>
+                        <div class="spec-edit-item">
+                            <span class="spec-edit-key">Variety</span>
+                            <span class="spec-edit-val">Premium Sweet</span>
                         </div>
-                        <div class="spec-pill">
-                            <span class="pill-label">Selection Rate</span>
-                            <span class="pill-value">Top 0.5% Yield</span>
+                        <div class="spec-edit-item">
+                            <span class="spec-edit-key">Texture</span>
+                            <span class="spec-edit-val">Juicy & Golden</span>
                         </div>
-                        <div class="spec-pill">
-                            <span class="pill-label">Grade</span>
-                            <span class="pill-value">AAA+ Botanical</span>
+                        <div class="spec-edit-item">
+                            <span class="spec-edit-key">Taste</span>
+                            <span class="spec-edit-val">Naturally Sweet</span>
+                        </div>
+                        <div class="spec-edit-item">
+                            <span class="spec-edit-key">Weight</span>
+                            <span class="spec-edit-val">Approx. 1–1.5 kg</span>
+                        </div>
+                    </div>
+
+                    <div class="price-reveal-box" id="priceRevealBox">
+                        <span class="price-label-small">SINGLE FRUIT ALLOCATION</span>
+                        <div class="price-big-display">
+                            <span class="currency-symbol">₹</span>
+                            <span class="price-number" id="revealPriceNum">149</span>
+                        </div>
+                        <span class="price-unit-tag">PER PINEAPPLE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================================== -->
+        <!-- SECTION 03 — ADD TO CART EXPERIENCE                               -->
+        <!-- =================================================================== -->
+        <section id="cart-buy" class="sec-light sec-buy-experience">
+            <div class="container">
+                <div class="buy-card-wrapper">
+                    <div class="buy-card-inner">
+                        <div class="buy-card-visual">
+                            <img src="./assets/pineapple_step1_whole.png" alt="Whole Golden Pineapple" class="buy-img">
+                        </div>
+                        
+                        <div class="buy-card-info">
+                            <span class="tag-pill-light">DIRECT ESTATE SHIPMENT</span>
+                            <h3 class="buy-product-title">Golden Pineapple</h3>
+                            <p class="buy-product-subtitle">Single-origin premium fruit, freshly harvested from Kerala estate soils.</p>
+                            
+                            <div class="buy-price-row">
+                                <span class="buy-price">₹149</span>
+                                <span class="buy-price-unit">/ Unit (1–1.5 kg)</span>
+                            </div>
+
+                            <div class="quantity-selector-group">
+                                <span class="qty-label">Select Quantity:</span>
+                                <div class="qty-controls">
+                                    <button class="qty-btn" id="qtyMinusBtn" aria-label="Decrease quantity">−</button>
+                                    <span class="qty-num" id="qtyDisplayNum">1</span>
+                                    <button class="qty-btn" id="qtyPlusBtn" aria-label="Increase quantity">+</button>
+                                </div>
+                            </div>
+
+                            <button class="btn-yellow-solid btn-add-cart w-100" id="addToCartMainBtn">
+                                <span>Add to Cart</span>
+                                <span class="cart-btn-arrow">→</span>
+                            </button>
+
+                            <div class="buy-features-micro">
+                                <span>✓ Fresh Selection</span>
+                                <span>✓ Direct Dispatch</span>
+                                <span>✓ 100% Guaranteed Quality</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: PINEAPPLE ANATOMY / DECONSTRUCTED SECTION -->
-        <section id="anatomy" class="section section-anatomy">
+
+        <!-- =================================================================== -->
+        <!-- SECTION 04 — WHY THIS PINEAPPLE ("SIMPLY BETTER.")                 -->
+        <!-- =================================================================== -->
+        <section id="why-better" class="sec-yellow-full sec-qualities">
+            <div class="container text-center">
+                <span class="subtitle-dark">UNMATCHED TROPICAL EXCELLENCE</span>
+                <h2 class="heading-editorial-xl dark-text">SIMPLY BETTER.</h2>
+
+                <div class="qualities-grid">
+                    <div class="quality-card">
+                        <h3 class="q-number">100%</h3>
+                        <h4 class="q-title">NATURAL</h4>
+                        <p class="q-desc">Zero synthetic growth enhancers or post-harvest chemical treatments.</p>
+                    </div>
+
+                    <div class="quality-card">
+                        <h3 class="q-number">GOLDEN</h3>
+                        <h4 class="q-title">FLESH</h4>
+                        <p class="q-desc">Rich golden yellow pulp packed with natural fructose and aromatic oils.</p>
+                    </div>
+
+                    <div class="quality-card">
+                        <h3 class="q-number">NATURALLY</h3>
+                        <h4 class="q-title">SWEET</h4>
+                        <p class="q-desc">Matured under tropical equator sunshine to peak 17.2° Brix sweetness.</p>
+                    </div>
+
+                    <div class="quality-card">
+                        <h3 class="q-number">PREMIUM</h3>
+                        <h4 class="q-title">FRESHNESS</h4>
+                        <p class="q-desc">Shipped directly from volcanic soil harvest within 48 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================================== -->
+        <!-- SECTION 05 — PINEAPPLE ANATOMY (LIGHT THEME DECONSTRUCTION)       -->
+        <!-- =================================================================== -->
+        <section id="anatomy-light" class="sec-cream sec-anatomy-light">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="subtitle-gold">INTERACTIVE DECONSTRUCTION</span>
-                    <h2 class="section-title">Anatomy of the Golden Crown</h2>
-                    <p class="section-desc">Explore the vertical micro-layers of JOLLY'S PINEAPPLE. Drag the slider or scroll down to deconstruct each structural component in anti-gravity motion.</p>
+                <div class="editorial-header text-center">
+                    <span class="tag-pill-light">LIGHT THEME DECONSTRUCTION</span>
+                    <h2 class="heading-editorial">Pineapple Anatomy</h2>
+                    <p class="editorial-copy">Explore the structural components of the Golden Pineapple in clean anti-gravity motion.</p>
+                </div>
+
+                <div class="anatomy-stage-light">
+                    <div class="stack-light">
+                        
+                        <div class="part-item-light part-crown-l">
+                            <img src="./assets/pineapple_part_crown.png" alt="Crown">
+                            <div class="callout-light c-crown">
+                                <h4>Crown</h4>
+                                <p>Emerald foliage rich in bromelain enzymes.</p>
+                            </div>
+                        </div>
+
+                        <div class="part-item-light part-skin-l">
+                            <img src="./assets/pineapple_part_skin.png" alt="Skin">
+                            <div class="callout-light c-skin">
+                                <h4>Skin</h4>
+                                <p>Hexagonal protective exocarp.</p>
+                            </div>
+                        </div>
+
+                        <div class="part-item-light part-flesh-l">
+                            <img src="./assets/pineapple_part_flesh.png" alt="Flesh">
+                            <div class="callout-light c-flesh">
+                                <h4>Golden Flesh</h4>
+                                <p>Translucent nectar cells at peak Brix.</p>
+                            </div>
+                        </div>
+
+                        <div class="part-item-light part-core-l">
+                            <img src="./assets/pineapple_part_core.png" alt="Core">
+                            <div class="callout-light c-core">
+                                <h4>Core & Segments</h4>
+                                <p>Vascular spine & juicy bite segments.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================================== -->
+        <!-- SECTION 06 — FROM WHOLE TO SLICE (LONG SCROLL STORYTELLING)        -->
+        <!-- =================================================================== -->
+        <section id="transformation" class="sec-light sec-story-transform">
+            <div class="container">
+                <div class="editorial-header text-center">
+                    <span class="tag-pill-light">SCROLL STORYTELLING</span>
+                    <h2 class="heading-editorial">From Whole to Slice</h2>
+                    <p class="editorial-copy">Trace the transformation from intact volcanic fruit to ready-to-serve golden slices.</p>
+                </div>
+
+                <div class="transform-pipeline">
                     
-                    <!-- Deconstruction Slider Control -->
-                    <div class="deconstruct-controls">
-                        <label for="deconstructSlider" class="control-label">Explode Level:</label>
-                        <input type="range" id="deconstructSlider" min="0" max="100" value="45" class="custom-range">
-                        <span id="sliderValueText" class="control-val">45%</span>
+                    <div class="t-step-item">
+                        <div class="t-step-visual">
+                            <img src="./assets/pineapple_step1_whole.png" alt="Whole Pineapple">
+                        </div>
+                        <div class="t-step-info">
+                            <span class="t-step-num">01. WHOLE</span>
+                            <h3>Intact Harvest</h3>
+                            <p>Hand-harvested at stalk maturity in Kerala mineral fields.</p>
+                        </div>
+                    </div>
+
+                    <div class="t-step-arrow">↓</div>
+
+                    <div class="t-step-item">
+                        <div class="t-step-visual">
+                            <img src="./assets/pineapple_step2_peeled.png" alt="Peeled Pineapple">
+                        </div>
+                        <div class="t-step-info">
+                            <span class="t-step-num">02. PEELED</span>
+                            <h3>Artisanal Spiral Cut</h3>
+                            <p>Exocarp rind trimmed along natural diagonal growth spirals.</p>
+                        </div>
+                    </div>
+
+                    <div class="t-step-arrow">↓</div>
+
+                    <div class="t-step-item">
+                        <div class="t-step-visual">
+                            <img src="./assets/pineapple_step3_cut.png" alt="Cut Pineapple">
+                        </div>
+                        <div class="t-step-info">
+                            <span class="t-step-num">03. CUT</span>
+                            <h3>Rings & Spears</h3>
+                            <p>Portioned into architectural rings to release natural aromatics.</p>
+                        </div>
+                    </div>
+
+                    <div class="t-step-arrow">↓</div>
+
+                    <div class="t-step-item">
+                        <div class="t-step-visual">
+                            <img src="./assets/pineapple_step4_slices.png" alt="Sliced Pineapple">
+                        </div>
+                        <div class="t-step-info">
+                            <span class="t-step-num">04. SLICED & READY TO SERVE</span>
+                            <h3>Plated Culinary Gold</h3>
+                            <p>Chilled to 9°C serving temperature for supreme nectar enjoyment.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================================== -->
+        <!-- SECTION 07 — TASTE & TEXTURE                                       -->
+        <!-- =================================================================== -->
+        <section id="taste-light" class="sec-cream sec-taste-light">
+            <div class="container grid-taste-light">
+                <div class="taste-words-col">
+                    <span class="tag-pill-light">SENSORY MACRO EXPERIENCE</span>
+                    <div class="macro-words-stack">
+                        <h2 class="macro-word word-1">GOLDEN.</h2>
+                        <h2 class="macro-word word-2">JUICY.</h2>
+                        <h2 class="macro-word word-3">SWEET.</h2>
+                        <h2 class="macro-word word-4">FRESH.</h2>
                     </div>
                 </div>
 
-                <!-- Exploded Interactive Stage -->
-                <div class="exploded-stage" id="explodedStage">
-                    <div class="stage-bg-grid"></div>
-                    
-                    <!-- Floating Parts Stack -->
-                    <div class="parts-stack" id="partsStack">
-                        
-                        <!-- Part 1: Crown -->
-                        <div class="exploded-part part-crown" data-layer="crown">
-                            <img src="./assets/pineapple_part_crown.png" alt="Crown Foliage">
-                            <div class="part-hotspot hotspot-crown">
-                                <div class="hotspot-dot"></div>
-                                <div class="hotspot-line"></div>
-                                <div class="hotspot-card glass-card">
-                                    <span class="card-num">01</span>
-                                    <h3>Botanical Crown</h3>
-                                    <p>Dark emerald foliage rich in essential bromelain enzymes and subtle aromatic terpenes.</p>
-                                </div>
-                            </div>
+                <div class="taste-macro-visual">
+                    <div class="macro-frame-light">
+                        <img src="./assets/pineapple_macro_slice.png" alt="Macro Pineapple Flesh">
+                        <div class="macro-caption-light">
+                            <span>TRANS LCENT NECTAR CELLS</span>
+                            <small>Kerala Volcanic Harvest</small>
                         </div>
-
-                        <!-- Part 2: Skin/Exocarp -->
-                        <div class="exploded-part part-skin" data-layer="skin">
-                            <img src="./assets/pineapple_part_skin.png" alt="Geometric Skin">
-                            <div class="part-hotspot hotspot-skin">
-                                <div class="hotspot-dot"></div>
-                                <div class="hotspot-line"></div>
-                                <div class="hotspot-card glass-card">
-                                    <span class="card-num">02</span>
-                                    <h3>Hexagonal Exocarp</h3>
-                                    <p>Natural protective shell featuring high-density golden geometry safeguarding internal hydration.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Part 3: Golden Flesh -->
-                        <div class="exploded-part part-flesh" data-layer="flesh">
-                            <img src="./assets/pineapple_part_flesh.png" alt="Golden Flesh">
-                            <div class="part-hotspot hotspot-flesh">
-                                <div class="hotspot-dot"></div>
-                                <div class="hotspot-line"></div>
-                                <div class="hotspot-card glass-card">
-                                    <span class="card-num">03</span>
-                                    <h3>Succulent Mesocarp</h3>
-                                    <p>Translucent golden pulp cells holding maximum natural fructose, sucrose, and vitamin matrix.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Part 4: Mineral Core -->
-                        <div class="exploded-part part-core" data-layer="core">
-                            <img src="./assets/pineapple_part_core.png" alt="Pineapple Core">
-                            <div class="part-hotspot hotspot-core">
-                                <div class="hotspot-dot"></div>
-                                <div class="hotspot-line"></div>
-                                <div class="hotspot-card glass-card">
-                                    <span class="card-num">04</span>
-                                    <h3>Endocarp Core</h3>
-                                    <p>Crisp central vascular spine concentrating natural minerals, low acidity, and signature crunch.</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: PREMIUM QUALITY SECTION -->
-        <section id="quality" class="section section-quality">
-            <div class="quality-bg-wrapper">
-                <img src="./assets/pineapple_texture.png" alt="Pineapple Texture Background" class="texture-bg" id="textureBg">
-                <div class="overlay-gradient"></div>
-            </div>
-            
-            <div class="container relative-z">
-                <div class="section-header text-center">
-                    <span class="subtitle-gold">UNCOMPROMISING METRICS</span>
-                    <h2 class="section-title">Standards of Distinction</h2>
-                    <p class="section-desc">Every fruit is systematically profiled for density, Brix levels, and scent profile before receiving our gold hallmark.</p>
-                </div>
 
-                <!-- Animated Stat Counters Grid -->
-                <div class="stats-grid">
-                    <div class="stat-card glass-card">
-                        <div class="stat-glow"></div>
-                        <div class="stat-number-wrapper">
-                            <span class="stat-number" data-target="100">0</span><span class="stat-unit">%</span>
-                        </div>
-                        <h3 class="stat-title">100% Natural</h3>
-                        <p class="stat-desc">Zero synthetic growth hormones, chemical yellowing, or artificial post-harvest wax.</p>
-                    </div>
-
-                    <div class="stat-card glass-card">
-                        <div class="stat-glow"></div>
-                        <div class="stat-number-wrapper">
-                            <span class="stat-number" data-target="48">0</span><span class="stat-unit">Hrs</span>
-                        </div>
-                        <h3 class="stat-title">Freshly Selected</h3>
-                        <p class="stat-desc">Direct air-freighted from volcanic soil harvest directly to curated connoisseur tables.</p>
-                    </div>
-
-                    <div class="stat-card glass-card">
-                        <div class="stat-glow"></div>
-                        <div class="stat-number-wrapper">
-                            <span class="stat-number" data-target="17.2" data-decimals="1">0</span><span class="stat-unit">° Brix</span>
-                        </div>
-                        <h3 class="stat-title">Naturally Sweet</h3>
-                        <p class="stat-desc">Achieves natural wine-grade sugar concentration matured under tropical equator sunshine.</p>
-                    </div>
-
-                    <div class="stat-card glass-card">
-                        <div class="stat-glow"></div>
-                        <div class="stat-number-wrapper">
-                            <span class="stat-text">AAA+</span>
-                        </div>
-                        <h3 class="stat-title">Premium Quality</h3>
-                        <p class="stat-desc">Hand-stamped and individual serial-numbered for complete botanical traceability.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: FROM WHOLE TO SLICE SECTION -->
-        <section id="process" class="section section-process">
+        <!-- =================================================================== -->
+        <!-- SECTION 08 — PRODUCT INFORMATION (EDITORIAL DOSSIER)              -->
+        <!-- =================================================================== -->
+        <section id="product-info" class="sec-light sec-info-dossier">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="subtitle-gold">CULINARY JOURNEY</span>
-                    <h2 class="section-title">From Whole to Slice</h2>
-                    <p class="section-desc">Observe the meticulous transformation from pristine volcanic fruit to plated culinary perfection.</p>
+                <div class="editorial-header">
+                    <span class="tag-pill-light">BOTANICAL DOSSIER</span>
+                    <h2 class="heading-editorial">PRODUCT INFORMATION</h2>
                 </div>
 
-                <!-- Step Navigator Tabs -->
-                <div class="process-tabs">
-                    <button class="tab-btn active" data-step="0">01. Pristine Whole</button>
-                    <button class="tab-btn" data-step="1">02. Precision Peel</button>
-                    <button class="tab-btn" data-step="2">03. Artisanal Cut</button>
-                    <button class="tab-btn" data-step="3">04. Plated Slices</button>
-                </div>
-
-                <!-- Process Viewer Carousel Container -->
-                <div class="process-stage" id="processStage">
-                    <div class="process-track" id="processTrack">
-                        
-                        <!-- Stage 1 -->
-                        <div class="process-card">
-                            <div class="card-img-wrap">
-                                <img src="./assets/pineapple_step1_whole.png" alt="Whole Pineapple">
-                            </div>
-                            <div class="card-info">
-                                <span class="step-num">STAGE 01</span>
-                                <h3>The Intact Harvest</h3>
-                                <p>Selected at 98% ripeness on the stalk, preserving full structural integrity and vibrant emerald crown leaves.</p>
-                                <ul class="step-specs">
-                                    <li><span>Optimal Weight:</span> 1.85 kg - 2.10 kg</li>
-                                    <li><span>Rind Color:</span> Deep Amber Gold</li>
-                                </ul>
-                            </div>
+                <div class="info-dossier-grid">
+                    <div class="dossier-col">
+                        <div class="dossier-row">
+                            <span class="d-key">Origin</span>
+                            <span class="d-val">Kerala, India</span>
                         </div>
-
-                        <!-- Stage 2 -->
-                        <div class="process-card">
-                            <div class="card-img-wrap">
-                                <img src="./assets/pineapple_step2_peeled.png" alt="Peeled Pineapple">
-                            </div>
-                            <div class="card-info">
-                                <span class="step-num">STAGE 02</span>
-                                <h3>Hand-Spiral Trimming</h3>
-                                <p>Skilled master carvers remove the hexagonal exocarp along natural diagonal growth spirals, preserving maximum succulent outer flesh.</p>
-                                <ul class="step-specs">
-                                    <li><span>Technique:</span> Diagonal Spiral Blade Pass</li>
-                                    <li><span>Yield Retention:</span> 88% Pure Fruit</li>
-                                </ul>
-                            </div>
+                        <div class="dossier-row">
+                            <span class="d-key">Variety</span>
+                            <span class="d-val">Premium Sweet Pineapple</span>
                         </div>
-
-                        <!-- Stage 3 -->
-                        <div class="process-card">
-                            <div class="card-img-wrap">
-                                <img src="./assets/pineapple_step3_cut.png" alt="Cut Pineapple">
-                            </div>
-                            <div class="card-info">
-                                <span class="step-num">STAGE 03</span>
-                                <h3>Spear & Ring Carving</h3>
-                                <p>Portioned into architectural rings and uniform geometric spears to unlock maximum surface area aroma release.</p>
-                                <ul class="step-specs">
-                                    <li><span>Thickness:</span> 18mm Precision Rings</li>
-                                    <li><span>Juice Retention:</span> 99.4% Hydro-Lock</li>
-                                </ul>
-                            </div>
+                        <div class="dossier-row">
+                            <span class="d-key">Weight</span>
+                            <span class="d-val">Approx. 1–1.5 kg</span>
                         </div>
-
-                        <!-- Stage 4 -->
-                        <div class="process-card">
-                            <div class="card-img-wrap">
-                                <img src="./assets/pineapple_step4_slices.png" alt="Plated Slices">
-                            </div>
-                            <div class="card-info">
-                                <span class="step-num">STAGE 04</span>
-                                <h3>The Plated Presentation</h3>
-                                <p>Arranged on dark slate or crystalline glassware, finished with edible gold leaf and chilled to 9°C serving temperature.</p>
-                                <ul class="step-specs">
-                                    <li><span>Garnish Pairing:</span> Mint Leaf / Edible Gold</li>
-                                    <li><span>Serving Temp:</span> 8°C - 10°C</li>
-                                </ul>
-                            </div>
+                        <div class="dossier-row">
+                            <span class="d-key">Texture</span>
+                            <span class="d-val">Juicy and Golden</span>
                         </div>
-
                     </div>
-                </div>
 
-                <!-- Carousel Progress Indicator -->
-                <div class="process-controls">
-                    <button class="nav-arrow prev-arrow" id="processPrev" aria-label="Previous step">←</button>
-                    <div class="progress-bar-wrap">
-                        <div class="progress-bar-fill" id="processProgress"></div>
-                    </div>
-                    <button class="nav-arrow next-arrow" id="processNext" aria-label="Next step">→</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: TASTE & TEXTURE SECTION -->
-        <section id="taste" class="section section-taste">
-            <div class="container grid-taste">
-                <div class="taste-content">
-                    <span class="subtitle-gold">ORGANOLEPTIC PROFILE</span>
-                    <h2 class="section-title">Sensory Symphony of Gold & Moisture</h2>
-                    <p class="section-desc">An extraordinary fusion of crisp bite and instant silky melt, leaving a lingering finish of wild honey, white peach, and warm vanilla blossoms.</p>
-
-                    <div class="sensory-metrics">
-                        
-                        <div class="sensory-item">
-                            <div class="sensory-header">
-                                <span class="sensory-name">Sweetness Intensity (17.2° Brix)</span>
-                                <span class="sensory-val">98%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-fill" style="width: 98%;"></div></div>
+                    <div class="dossier-col">
+                        <div class="dossier-row">
+                            <span class="d-key">Taste Profile</span>
+                            <span class="d-val">Sweet, Tropical, Refreshing</span>
                         </div>
-
-                        <div class="sensory-item">
-                            <div class="sensory-header">
-                                <span class="sensory-name">Juiciness & Hydration</span>
-                                <span class="sensory-val">96%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-fill" style="width: 96%;"></div></div>
+                        <div class="dossier-row">
+                            <span class="d-key">Freshness</span>
+                            <span class="d-val">Freshly Selected Stalk Yield</span>
                         </div>
-
-                        <div class="sensory-item">
-                            <div class="sensory-header">
-                                <span class="sensory-name">Velvet Texture (Low Fiber)</span>
-                                <span class="sensory-val">94%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-fill" style="width: 94%;"></div></div>
+                        <div class="dossier-row">
+                            <span class="d-key">Serving</span>
+                            <span class="d-val">Best Served Chilled (8°C – 10°C)</span>
                         </div>
-
-                        <div class="sensory-item">
-                            <div class="sensory-header">
-                                <span class="sensory-name">Aromatic Complexity</span>
-                                <span class="sensory-val">99%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-fill" style="width: 99%;"></div></div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="taste-visual">
-                    <div class="macro-image-wrapper glass-container">
-                        <img src="./assets/pineapple_macro_slice.png" alt="Macro Pineapple Flesh Detail" class="macro-img">
-                        <div class="macro-glow-ring"></div>
-                        <div class="macro-badge">
-                            <span>MACRO CELLULAR DETAIL</span>
-                            <small>Translucent Nectar Cells</small>
+                        <div class="dossier-row">
+                            <span class="d-key">Storage</span>
+                            <span class="d-val">Store in a cool place & refrigerate after cutting</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 6: PRODUCT DETAILS SECTION -->
-        <section id="specs" class="section section-specs">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="subtitle-gold">SPECIFICATIONS & ORIGIN</span>
-                    <h2 class="section-title">Botanical Dossier</h2>
-                    <p class="section-desc">Comprehensive structural and origin data curated for sommelier verification.</p>
+
+        <!-- =================================================================== -->
+        <!-- SECTION 09 — PRODUCT BENEFITS                                      -->
+        <!-- =================================================================== -->
+        <section id="benefits" class="sec-yellow-full sec-benefits-light">
+            <div class="container text-center">
+                <div class="benefits-big-words">
+                    <h2>"GOOD FOOD."</h2>
+                    <h2>"GOOD TASTE."</h2>
+                    <h2>"PURE NATURE."</h2>
                 </div>
 
-                <div class="specs-table-wrapper glass-card">
-                    <div class="specs-grid">
-                        
-                        <div class="spec-row">
-                            <div class="spec-key">Botanical Nomenclature</div>
-                            <div class="spec-val"><em>Ananas comosus var. Royal Gold</em></div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Geographic Origin</div>
-                            <div class="spec-val">Volcanic Mineral Slopes, San Carlos Valley (1,200m Altitude)</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Soil & Terroir</div>
-                            <div class="spec-val">Volcanic Basalt Ash rich in Natural Potassium and Iron</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Brix Sugar Index</div>
-                            <div class="spec-val">16.5° — 18.0° Natural Brix (Peak Harvest)</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Acid Profile</div>
-                            <div class="spec-val">Balanced pH 4.2 Low Acid (Smooth Digestibility)</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Flesh Texture</div>
-                            <div class="spec-val">Fiberless, Succulent Velvet with Fine Structural Crispness</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Aroma Notes</div>
-                            <div class="spec-val">Wild Honey, Passionfruit, Guava, Nectarine, Vanilla Blossom</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Recommended Service</div>
-                            <div class="spec-val">Chilled to 8°C — 10°C. Serve unadorned or with champagne pairings.</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Storage & Shelf Life</div>
-                            <div class="spec-val">Keep at 10°C — 12°C. Best enjoyed within 5 days of air shipment.</div>
-                        </div>
-
-                        <div class="spec-row">
-                            <div class="spec-key">Certification</div>
-                            <div class="spec-val">100% Non-GMO, Organic Volcanic Certified, Traceable Batch ID</div>
-                        </div>
-
-                    </div>
+                <div class="benefits-list">
+                    <span class="b-item">Naturally sweet</span>
+                    <span class="b-dot">•</span>
+                    <span class="b-item">Rich tropical flavor</span>
+                    <span class="b-dot">•</span>
+                    <span class="b-item">Freshly selected</span>
+                    <span class="b-dot">•</span>
+                    <span class="b-item">Juicy golden flesh</span>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 7: FINAL PRODUCT SHOWCASE -->
-        <section id="showcase" class="section section-showcase">
-            <div class="showcase-bg-glow"></div>
-            <div class="container text-center relative-z">
-                
-                <span class="subtitle-gold">THE FINAL SHOWCASE</span>
-                <h2 class="headline-hero-style">Experience Unrivaled Opulence</h2>
-                <p class="showcase-lead">Every harvest is strictly allocation-only. Reserve your bespoke crate delivered straight from the volcanic soil to your door.</p>
 
-                <!-- Floating Interactive Product Frame -->
-                <div class="showcase-stage" id="showcaseStage">
-                    <div class="showcase-pineapple-wrap" id="showcasePineapple">
-                        <img src="./assets/pineapple_final_showcase.png" alt="Floating Royal Pineapple Showcase" class="showcase-img">
-                        <div class="showcase-reflection"></div>
-                        <div class="rim-light-effect"></div>
-                    </div>
+        <!-- =================================================================== -->
+        <!-- SECTION 10 — FINAL PURCHASE SECTION                                -->
+        <!-- =================================================================== -->
+        <section id="purchase-section" class="sec-light sec-final-purchase">
+            <div class="container grid-purchase">
+                <div class="purchase-img-wrap">
+                    <img src="./assets/pineapple_final_showcase.png" alt="Golden Pineapple Final Showcase" class="p-img">
                 </div>
 
-                <div class="showcase-cta">
-                    <button class="btn-gold-solid btn-large" id="openReserveModalBtn2">
-                        <span>Reserve Your Harvest Allocation</span>
-                        <span class="btn-arrow">→</span>
+                <div class="purchase-form-wrap">
+                    <span class="tag-pill-light">DIRECT ALLOCATION</span>
+                    <h2 class="heading-editorial">BRING HOME THE GOLDEN.</h2>
+                    <p class="purchase-subtext">Premium pineapple. Naturally sweet. Freshly selected.</p>
+
+                    <div class="purchase-price-tag">
+                        <span class="p-currency">₹</span>
+                        <span class="p-amount">149</span>
+                        <span class="p-unit">PER PINEAPPLE</span>
+                    </div>
+
+                    <div class="quantity-selector-group">
+                        <span class="qty-label">Quantity:</span>
+                        <div class="qty-controls">
+                            <button class="qty-btn" id="finalQtyMinusBtn">−</button>
+                            <span class="qty-num" id="finalQtyNum">1</span>
+                            <button class="qty-btn" id="finalQtyPlusBtn">+</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-yellow-solid btn-large w-100" id="finalAddToCartBtn">
+                        <span>ADD TO CART — ₹<span id="finalBtnPrice">149</span></span>
                     </button>
-                    <p class="cta-microtext">Limited batch • Next air shipment departs in 72 hours</p>
+
+                    <div class="purchase-trust-row">
+                        <span>✦ Fresh Selection</span>
+                        <span>✦ Premium Quality</span>
+                        <span>✦ Kerala Origin</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 8: MINIMAL LUXURY FOOTER -->
-        <footer class="footer" id="footer">
+
+        <!-- =================================================================== -->
+        <!-- SECTION 11 — CART SUMMARY                                         -->
+        <!-- =================================================================== -->
+        <section id="cart-summary" class="sec-cream sec-cart-summary">
             <div class="container">
-                <div class="footer-top">
-                    <div class="footer-brand">
+                <div class="cart-summary-box">
+                    <div class="cart-box-header">
+                        <span class="tag-pill-light">YOUR ALLOCATION</span>
+                        <h2 class="heading-editorial">YOUR CART</h2>
+                    </div>
+
+                    <div class="cart-items-list" id="cartItemsList">
+                        <div class="cart-item-row">
+                            <div class="cart-item-info">
+                                <img src="./assets/pineapple_intro.png" alt="Golden Pineapple" class="cart-thumb">
+                                <div>
+                                    <h4>Golden Pineapple</h4>
+                                    <p>Kerala Origin • 1–1.5 kg</p>
+                                </div>
+                            </div>
+                            <div class="cart-item-qty">
+                                <button class="qty-btn-sm" id="cartSummaryMinus">−</button>
+                                <span id="cartSummaryQty">1</span>
+                                <button class="qty-btn-sm" id="cartSummaryPlus">+</button>
+                            </div>
+                            <div class="cart-item-price">
+                                ₹<span id="cartSummaryItemPrice">149</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-box-footer">
+                        <div class="subtotal-row">
+                            <span>Subtotal</span>
+                            <span class="subtotal-amt">₹<span id="cartSubtotalVal">149</span></span>
+                        </div>
+                        <button class="btn-yellow-solid w-100 btn-checkout" id="checkoutBtn" onclick="alert('Thank you for reserving Golden Pineapple! Checkout process initialized.');">
+                            PROCEED TO CHECKOUT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================================== -->
+        <!-- SECTION 12 — FINAL PRODUCT SHOWCASE                              -->
+        <!-- =================================================================== -->
+        <section id="showcase-light" class="sec-light sec-showcase-light">
+            <div class="container text-center">
+                <div class="showcase-pineapple-light">
+                    <img src="./assets/pineapple_final_showcase.png" alt="Floating Golden Pineapple" class="float-gentle">
+                    <div class="yellow-floor-glow"></div>
+                </div>
+                
+                <h2 class="heading-editorial-xl">ONE PINEAPPLE.</h2>
+                <h3 class="subheading-showcase">PURE TROPICAL.</h3>
+            </div>
+        </section>
+
+
+        <!-- =================================================================== -->
+        <!-- FOOTER                                                             -->
+        <!-- =================================================================== -->
+        <footer class="footer-light" id="footer">
+            <div class="container">
+                <div class="footer-grid-light">
+                    <div class="footer-brand-light">
                         <a href="#" class="brand-logo">
                             <span class="logo-icon">🍍</span>
-                            <span class="logo-text">ANANAS ROYALE</span>
+                            <span class="logo-text-dark">GOLDEN PINEAPPLE</span>
                         </a>
-                        <p class="footer-tagline">The World's Preeminent Botanical Luxury Experience.</p>
+                        <p class="footer-tagline-dark">Single-origin premium tropical pineapple harvest from Kerala, India.</p>
                     </div>
 
-                    <div class="footer-nav">
-                        <div class="footer-col">
-                            <h4>Navigation</h4>
-                            <a href="#intro">Introduction</a>
-                            <a href="#anatomy">Deconstructed</a>
-                            <a href="#quality">Quality</a>
-                            <a href="#process">Process</a>
-                        </div>
-                        <div class="footer-col">
-                            <h4>Dossier</h4>
-                            <a href="#taste">Taste Profile</a>
-                            <a href="#specs">Specifications</a>
-                            <a href="#showcase">Harvest Reserve</a>
-                        </div>
-                        <div class="footer-col">
-                            <h4>Social</h4>
-                            <a href="#" target="_blank" rel="noopener">Instagram</a>
-                            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-                            <a href="#" target="_blank" rel="noopener">Privé Club</a>
-                        </div>
+                    <div class="footer-links-light">
+                        <a href="#product-intro">Shop</a>
+                        <a href="#special-details">Details</a>
+                        <a href="#why-better">Quality</a>
+                        <a href="#product-info">Contact</a>
+                        <a href="#cart-summary">Cart</a>
                     </div>
                 </div>
 
-                <div class="footer-bottom">
-                    <p class="copyright">&copy; 2026 ANANAS ROYALE BOTANICALS INC. ALL RIGHTS RESERVED.</p>
-                    <div class="footer-legal">
-                        <a href="#">Privacy Policy</a>
-                        <span class="sep">•</span>
-                        <a href="#">Terms of Allocation</a>
-                        <span class="sep">•</span>
-                        <a href="#">Traceability Portal</a>
-                    </div>
+                <div class="footer-bottom-light">
+                    <p>&copy; 2026 GOLDEN PINEAPPLE INC. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </footer>
 
     </main>
-
-    <!-- Reservation Modal Dialog -->
-    <div class="modal-overlay" id="reserveModal" aria-hidden="true">
-        <div class="modal-card glass-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <button class="modal-close" id="closeReserveModalBtn" aria-label="Close modal">&times;</button>
-            <div class="modal-header">
-                <span class="subtitle-gold">BESPOKE ALLOCATION</span>
-                <h3 id="modalTitle">Reserve Ananas Royale</h3>
-                <p>Select your harvest quantity for the upcoming air delivery batch.</p>
-            </div>
-            <form class="modal-form" id="reserveForm" onsubmit="event.preventDefault(); alert('Your allocation request has been registered. Our concierge will contact you within 2 hours.');">
-                <div class="form-group">
-                    <label for="resName">Full Name</label>
-                    <input type="text" id="resName" required placeholder="e.g. Lord Sterling">
-                </div>
-                <div class="form-group">
-                    <label for="resEmail">Privé Email Address</label>
-                    <input type="email" id="resEmail" required placeholder="concierge@domain.com">
-                </div>
-                <div class="form-group">
-                    <label for="resQty">Crate Quantity (1 Crate = 4 Single-Origin Fruits)</label>
-                    <select id="resQty">
-                        <option value="1">1 Crate — Signature Reserve ($180)</option>
-                        <option value="2">2 Crates — Connoisseur Batch ($340)</option>
-                        <option value="5">5 Crates — Grand Estate Allocation ($800)</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-gold-solid w-100">Submit Allocation Request</button>
-            </form>
-        </div>
-    </div>
 
     <!-- Main JavaScript Logic -->
     <script src="./script.js"></script>

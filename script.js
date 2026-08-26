@@ -1,16 +1,17 @@
 /* ==========================================================================
-   ANANAS ROYALE — INTERACTIVE SCRIPT ENGINE
+   GOLDEN PINEAPPLE — INTERACTIVE & E-COMMERCE SCRIPT ENGINE
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Initialize GSAP plugins
+    // Register GSAP Plugins
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
     }
 
     /* ----------------------------------------------------------------------
-       0. SCROLL-DRIVEN 300-FRAME HERO CANVAS ANIMATION & FEATURE TEXT OVERLAYS
+       0. PRESERVED HERO 300-FRAME CANVAS ANIMATION & CORNER FEATURE TEXTS
+       (100% UNTOUCHED MOTION & SEQUENCE LOGIC)
        ---------------------------------------------------------------------- */
     const heroCanvas = document.getElementById('heroCanvas');
     if (heroCanvas) {
@@ -19,20 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroImages = [];
         const sequence = { frame: 0 };
 
-        // Helper for 3-digit frame filename formatting (ezgif-frame-001.jpg)
         const getFramePath = (index) => {
             const padNum = (index + 1).toString().padStart(3, '0');
             return `./assets/Images/ezgif-frame-${padNum}.jpg`;
         };
 
-        // Preload images
-        let loadedCount = 0;
         for (let i = 0; i < frameCount; i++) {
             const img = new Image();
             img.src = getFramePath(i);
             img.onload = () => {
-                loadedCount++;
-                if (i === 0) renderHeroFrame(); // Draw first frame immediately
+                if (i === 0) renderHeroFrame();
             };
             heroImages.push(img);
         }
@@ -41,15 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = heroImages[sequence.frame];
             if (!img || !img.complete) return;
 
-            // Fit image proportionally onto canvas
             const cWidth = heroCanvas.width;
             const cHeight = heroCanvas.height;
-
             ctx.clearRect(0, 0, cWidth, cHeight);
 
             const hRatio = cWidth / img.width;
             const vRatio = cHeight / img.height;
-            const ratio = Math.max(hRatio, vRatio); // Cover full viewport
+            const ratio = Math.max(hRatio, vRatio);
             
             const centerShiftX = (cWidth - img.width * ratio) / 2;
             const centerShiftY = (cHeight - img.height * ratio) / 2;
@@ -70,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', resizeHeroCanvas);
         resizeHeroCanvas();
 
-        // GSAP ScrollTrigger Sequence & Text Blocks
         const textBlocks = [
             document.querySelector('.text-block-1'),
             document.querySelector('.text-block-2'),
@@ -91,19 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            // ScrollTrigger for Canvas Sequence (0 to 299)
             ScrollTrigger.create({
                 trigger: '#hero',
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: 0.2,
                 onUpdate: (self) => {
-                    // Calculate frame index based on scroll progress (0.0 to 1.0)
                     const targetFrame = Math.min(frameCount - 1, Math.floor(self.progress * frameCount));
                     sequence.frame = targetFrame;
                     renderHeroFrame();
 
-                    // Switch feature text blocks based on scroll progress thresholds
                     if (self.progress < 0.22) {
                         setActiveTextBlock(0);
                     } else if (self.progress < 0.48) {
@@ -119,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ----------------------------------------------------------------------
-       1. AMBIENT ANTI-GRAVITY CANVAS PARTICLE ENGINE
+       1. AMBIENT CANVAS PARTICLE SYSTEM
        ---------------------------------------------------------------------- */
     const canvas = document.getElementById('particleCanvas');
     if (canvas) {
@@ -127,50 +118,27 @@ document.addEventListener('DOMContentLoaded', () => {
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
         
-        let mouseX = width / 2;
-        let mouseY = height / 2;
-        
-        // Particle setup
-        const particleCount = window.innerWidth < 768 ? 35 : 75;
+        const particleCount = window.innerWidth < 768 ? 30 : 65;
         const particles = [];
 
-        class AntiGravityParticle {
-            constructor() {
-                this.reset();
-            }
-
+        class Particle {
+            constructor() { this.reset(); }
             reset() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.size = Math.random() * 2.2 + 0.6;
-                this.speedY = -(Math.random() * 0.4 + 0.15); // Float upwards
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.alpha = Math.random() * 0.6 + 0.2;
-                this.pulseSpeed = Math.random() * 0.02 + 0.005;
-                // Gold or subtle green/emerald sparkle tint
-                this.color = Math.random() > 0.3 ? '#F7D168' : '#2A523C';
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = -(Math.random() * 0.35 + 0.1);
+                this.alpha = Math.random() * 0.5 + 0.2;
+                this.color = Math.random() > 0.4 ? '#F4C430' : '#E5B84B';
             }
-
             update() {
                 this.y += this.speedY;
-                this.x += this.speedX + (mouseX - width / 2) * 0.00005;
-                
-                // Particle pulsing alpha
-                this.alpha += Math.sin(Date.now() * this.pulseSpeed) * 0.005;
-
-                // Reset when floating out of screen
-                if (this.y < -10 || this.x < -10 || this.x > width + 10) {
-                    this.y = height + 10;
-                    this.x = Math.random() * width;
-                }
+                if (this.y < -10) this.reset();
             }
-
             draw() {
                 ctx.save();
-                ctx.globalAlpha = Math.max(0.1, Math.min(0.8, this.alpha));
+                ctx.globalAlpha = this.alpha;
                 ctx.fillStyle = this.color;
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = '#E5B84B';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -178,285 +146,177 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new AntiGravityParticle());
-        }
-
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
         function animateParticles() {
             ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
+            particles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(animateParticles);
         }
-
         animateParticles();
 
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
         });
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
     }
 
     /* ----------------------------------------------------------------------
-       2. NAVIGATION NAVBAR SCROLL & ACTIVE TRACKING
+       2. E-COMMERCE CART STATE ENGINE & REACTIVE UI
+       ---------------------------------------------------------------------- */
+    const UNIT_PRICE = 149;
+    let cartTotalItems = 0;
+    let currentSelectedQty = 1;
+
+    // Elements
+    const navCartCount = document.getElementById('navCartCount');
+    const qtyDisplayNum = document.getElementById('qtyDisplayNum');
+    const qtyMinusBtn = document.getElementById('qtyMinusBtn');
+    const qtyPlusBtn = document.getElementById('qtyPlusBtn');
+    const addToCartMainBtn = document.getElementById('addToCartMainBtn');
+
+    const finalQtyNum = document.getElementById('finalQtyNum');
+    const finalQtyMinusBtn = document.getElementById('finalQtyMinusBtn');
+    const finalQtyPlusBtn = document.getElementById('finalQtyPlusBtn');
+    const finalAddToCartBtn = document.getElementById('finalAddToCartBtn');
+    const finalBtnPrice = document.getElementById('finalBtnPrice');
+
+    const cartSummaryQty = document.getElementById('cartSummaryQty');
+    const cartSummaryMinus = document.getElementById('cartSummaryMinus');
+    const cartSummaryPlus = document.getElementById('cartSummaryPlus');
+    const cartSummaryItemPrice = document.getElementById('cartSummaryItemPrice');
+    const cartSubtotalVal = document.getElementById('cartSubtotalVal');
+
+    function updateCartUI() {
+        // Format cart badge (e.g. "01", "02")
+        const formattedCount = cartTotalItems.toString().padStart(2, '0');
+        if (navCartCount) navCartCount.textContent = formattedCount;
+
+        // Update selected quantities displays
+        if (qtyDisplayNum) qtyDisplayNum.textContent = currentSelectedQty;
+        if (finalQtyNum) finalQtyNum.textContent = currentSelectedQty;
+        if (cartSummaryQty) cartSummaryQty.textContent = Math.max(1, cartTotalItems || currentSelectedQty);
+
+        // Update prices
+        const activeCartQty = cartTotalItems > 0 ? cartTotalItems : currentSelectedQty;
+        const calculatedSubtotal = activeCartQty * UNIT_PRICE;
+
+        if (finalBtnPrice) finalBtnPrice.textContent = (currentSelectedQty * UNIT_PRICE).toLocaleString('en-IN');
+        if (cartSummaryItemPrice) cartSummaryItemPrice.textContent = (activeCartQty * UNIT_PRICE).toLocaleString('en-IN');
+        if (cartSubtotalVal) cartSubtotalVal.textContent = calculatedSubtotal.toLocaleString('en-IN');
+    }
+
+    // Quantity Increment / Decrement Handlers
+    function changeQty(delta) {
+        currentSelectedQty = Math.max(1, currentSelectedQty + delta);
+        updateCartUI();
+    }
+
+    function changeCartTotalQty(delta) {
+        cartTotalItems = Math.max(1, (cartTotalItems || 1) + delta);
+        updateCartUI();
+    }
+
+    if (qtyMinusBtn) qtyMinusBtn.addEventListener('click', () => changeQty(-1));
+    if (qtyPlusBtn) qtyPlusBtn.addEventListener('click', () => changeQty(1));
+
+    if (finalQtyMinusBtn) finalQtyMinusBtn.addEventListener('click', () => changeQty(-1));
+    if (finalQtyPlusBtn) finalQtyPlusBtn.addEventListener('click', () => changeQty(1));
+
+    if (cartSummaryMinus) cartSummaryMinus.addEventListener('click', () => changeCartTotalQty(-1));
+    if (cartSummaryPlus) cartSummaryPlus.addEventListener('click', () => changeCartTotalQty(1));
+
+    // Add to Cart Handlers
+    function triggerAddToCart(qtyToAdd) {
+        cartTotalItems += qtyToAdd;
+        updateCartUI();
+
+        // Animate nav cart badge button
+        const navCartBtn = document.getElementById('navCartBtn');
+        if (navCartBtn) {
+            gsap.fromTo(navCartBtn, 
+                { scale: 1.25, backgroundColor: '#E5B84B' },
+                { scale: 1, backgroundColor: '#F4C430', duration: 0.4, ease: 'back.out(2)' }
+            );
+        }
+
+        // Floating toast feedback
+        showToastNotification(`Added ${qtyToAdd} × Golden Pineapple to your cart!`);
+    }
+
+    if (addToCartMainBtn) {
+        addToCartMainBtn.addEventListener('click', () => triggerAddToCart(currentSelectedQty));
+    }
+    if (finalAddToCartBtn) {
+        finalAddToCartBtn.addEventListener('click', () => triggerAddToCart(currentSelectedQty));
+    }
+
+    function showToastNotification(message) {
+        let toast = document.getElementById('cartToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'cartToast';
+            toast.style.cssText = `
+                position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+                background: #111111; color: #FFFFFF; border: 2px solid #F4C430;
+                padding: 1rem 1.75rem; border-radius: 999px; font-family: 'Cinzel', serif;
+                font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.3); opacity: 0; transform: translateY(20px);
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            `;
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(20px)';
+        }, 2800);
+    }
+
+    /* ----------------------------------------------------------------------
+       3. NAVBAR SCROLL BACKGROUND & ACTIVE LINK ENGINE
        ---------------------------------------------------------------------- */
     const navbar = document.getElementById('navbar');
-    const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('.section');
-
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 80) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-
-        // Active link highlight
-        let currentSec = '';
-        sections.forEach(sec => {
-            const secTop = sec.offsetTop - 120;
-            const secHeight = sec.offsetHeight;
-            if (window.scrollY >= secTop && window.scrollY < secTop + secHeight) {
-                currentSec = sec.getAttribute('id');
-            }
-        });
-
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${currentSec}`) {
-                item.classList.add('active');
-            }
-        });
     });
 
     /* ----------------------------------------------------------------------
-       3. SECTION 2: INTERACTIVE DECONSTRUCTED / ANATOMY SLIDER
+       4. SCROLL REVEALS & ANIMATIONS
        ---------------------------------------------------------------------- */
-    const slider = document.getElementById('deconstructSlider');
-    const sliderText = document.getElementById('sliderValueText');
-    const partCrown = document.querySelector('.part-crown');
-    const partSkin = document.querySelector('.part-skin');
-    const partFlesh = document.querySelector('.part-flesh');
-    const partCore = document.querySelector('.part-core');
-
-    function applyExplodeOffset(percent) {
-        // percent 0 (assembled) to 100 (fully exploded)
-        const factor = percent / 100;
-        
-        if (partCrown) {
-            const crownY = 50 - (factor * 110);
-            partCrown.style.transform = `translateY(${crownY}px) scale(${1 + factor * 0.05})`;
-        }
-        
-        if (partSkin) {
-            const skinY = 200 - (factor * 40);
-            const skinX = -(factor * 30);
-            partSkin.style.transform = `translate(${skinX}px, ${skinY}px)`;
-        }
-        
-        if (partFlesh) {
-            const fleshY = 340 + (factor * 30);
-            const fleshX = (factor * 30);
-            partFlesh.style.transform = `translate(${fleshX}px, ${fleshY}px)`;
-        }
-        
-        if (partCore) {
-            const coreY = 480 + (factor * 110);
-            partCore.style.transform = `translateY(${coreY}px) scale(${1 - factor * 0.05})`;
-        }
-
-        if (sliderText) {
-            sliderText.textContent = `${Math.round(percent)}%`;
-        }
-    }
-
-    if (slider) {
-        slider.addEventListener('input', (e) => {
-            applyExplodeOffset(e.target.value);
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        // Price reveal box scale effect in Section 02
+        gsap.from('#priceRevealBox', {
+            scrollTrigger: {
+                trigger: '#priceRevealBox',
+                start: 'top 85%'
+            },
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
         });
-        // Initial set
-        applyExplodeOffset(slider.value);
-    }
 
-    // Also link ScrollTrigger to explode slider automatically as user scrolls anatomy section
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && slider) {
-        ScrollTrigger.create({
-            trigger: '#anatomy',
-            start: 'top 70%',
-            end: 'bottom 40%',
-            onUpdate: (self) => {
-                const scrollVal = Math.round(self.progress * 100);
-                slider.value = scrollVal;
-                applyExplodeOffset(scrollVal);
-            }
+        // Macro words in Section 07
+        gsap.from('.macro-word', {
+            scrollTrigger: {
+                trigger: '#taste-light',
+                start: 'top 75%'
+            },
+            y: 40,
+            opacity: 0,
+            stagger: 0.25,
+            duration: 1,
+            ease: 'power3.out'
         });
     }
 
-    /* ----------------------------------------------------------------------
-       4. SECTION 3: ANIMATED STATISTICAL COUNTERS
-       ---------------------------------------------------------------------- */
-    const statCards = document.querySelectorAll('.stat-card');
-
-    function animateCounters() {
-        statCards.forEach(card => {
-            const numEl = card.querySelector('.stat-number');
-            if (!numEl || numEl.dataset.animated) return;
-
-            const target = parseFloat(numEl.getAttribute('data-target'));
-            const isDecimal = numEl.getAttribute('data-decimals') === '1';
-            
-            numEl.dataset.animated = 'true';
-
-            gsap.to(numEl, {
-                innerText: target,
-                duration: 2.2,
-                ease: 'power2.out',
-                snap: { innerText: isDecimal ? 0.1 : 1 },
-                onUpdate: function () {
-                    if (isDecimal) {
-                        numEl.innerText = parseFloat(numEl.innerText).toFixed(1);
-                    } else {
-                        numEl.innerText = Math.round(numEl.innerText);
-                    }
-                }
-            });
-        });
-    }
-
-    if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.create({
-            trigger: '#quality',
-            start: 'top 75%',
-            onEnter: animateCounters
-        });
-    }
-
-    /* ----------------------------------------------------------------------
-       5. SECTION 4: PROCESS / CAROUSEL STEPPER
-       ---------------------------------------------------------------------- */
-    const processTrack = document.getElementById('processTrack');
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const prevBtn = document.getElementById('processPrev');
-    const nextBtn = document.getElementById('processNext');
-    const progressBar = document.getElementById('processProgress');
-    
-    let currentStep = 0;
-    const totalSteps = 4;
-
-    function goToStep(stepIndex) {
-        currentStep = (stepIndex + totalSteps) % totalSteps;
-        
-        if (processTrack) {
-            processTrack.style.transform = `translateX(-${currentStep * 25}%)`;
-        }
-
-        tabBtns.forEach((btn, idx) => {
-            if (idx === currentStep) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-
-        if (progressBar) {
-            progressBar.style.width = `${((currentStep + 1) / totalSteps) * 100}%`;
-        }
-    }
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const step = parseInt(btn.getAttribute('data-step'), 10);
-            goToStep(step);
-        });
-    });
-
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => goToStep(currentStep - 1));
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => goToStep(currentStep + 1));
-    }
-
-    /* ----------------------------------------------------------------------
-       6. SECTION 5: SENSORY BARS ANIMATION
-       ---------------------------------------------------------------------- */
-    const sensoryBars = document.querySelectorAll('.bar-fill');
-    if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.create({
-            trigger: '#taste',
-            start: 'top 75%',
-            onEnter: () => {
-                sensoryBars.forEach(bar => {
-                    const targetWidth = bar.style.width;
-                    bar.style.width = '0%';
-                    setTimeout(() => {
-                        bar.style.width = targetWidth;
-                    }, 100);
-                });
-            }
-        });
-    }
-
-    /* ----------------------------------------------------------------------
-       7. SECTION 7: 3D INTERACTIVE TILT FOR SHOWCASE
-       ---------------------------------------------------------------------- */
-    const showcasePineapple = document.getElementById('showcasePineapple');
-    const showcaseStage = document.getElementById('showcaseStage');
-
-    if (showcaseStage && showcasePineapple) {
-        showcaseStage.addEventListener('mousemove', (e) => {
-            const rect = showcaseStage.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            const rotateX = (-y / rect.height) * 20;
-            const rotateY = (x / rect.width) * 20;
-
-            showcasePineapple.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-        });
-
-        showcaseStage.addEventListener('mouseleave', () => {
-            showcasePineapple.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-        });
-    }
-
-    /* ----------------------------------------------------------------------
-       8. RESERVATION MODAL DIALOG CONTROLS
-       ---------------------------------------------------------------------- */
-    const modal = document.getElementById('reserveModal');
-    const openBtn1 = document.getElementById('openReserveModalBtn');
-    const openBtn2 = document.getElementById('openReserveModalBtn2');
-    const closeBtn = document.getElementById('closeReserveModalBtn');
-
-    function openModal() {
-        if (modal) {
-            modal.classList.add('active');
-            modal.setAttribute('aria-hidden', 'false');
-        }
-    }
-
-    function closeModal() {
-        if (modal) {
-            modal.classList.remove('active');
-            modal.setAttribute('aria-hidden', 'true');
-        }
-    }
-
-    if (openBtn1) openBtn1.addEventListener('click', openModal);
-    if (openBtn2) openBtn2.addEventListener('click', openModal);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-    }
-
+    // Initial UI Sync
+    updateCartUI();
 });
