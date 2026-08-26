@@ -297,13 +297,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) {
+    const heroSection = document.getElementById('hero');
+    
+    function updateNavbarTheme() {
+        if (!navbar) return;
+        // Calculate the exact bottom offset of the Hero section (minus navbar height threshold)
+        const heroBottom = heroSection ? (heroSection.offsetTop + heroSection.offsetHeight - 100) : (window.innerHeight * 3.5);
+        
+        if (window.scrollY >= heroBottom) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+    }
+
+    window.addEventListener('scroll', updateNavbarTheme);
+    updateNavbarTheme();
 
     /* ----------------------------------------------------------------------
        4. SCROLL REVEALS & ANIMATIONS

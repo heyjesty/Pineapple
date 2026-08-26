@@ -116,55 +116,41 @@ body {
 .text-center { text-align: center; }
 
 /* --------------------------------------------------------------------------
-   3. NAVIGATION HEADER
+   3. NAVIGATION HEADER & ANIMATED BLEND TRANSITION
    -------------------------------------------------------------------------- */
 .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
     z-index: 100;
     padding: 1.25rem 0;
-    transition: all var(--transition-smooth);
-    background: rgba(6, 6, 8, 0.4);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.6s var(--ease-luxury), border-color 0.6s var(--ease-luxury), box-shadow 0.6s var(--ease-luxury), padding 0.5s var(--ease-luxury);
+    background: rgba(6, 6, 8, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* Navbar Scrolled (Triggers after Hero Section Ends) */
 .navbar.scrolled {
     padding: 0.85rem 0;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(20px);
-    border-bottom: var(--border-dark-subtle);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.navbar.scrolled .logo-text, .navbar.scrolled .nav-item {
-    color: var(--text-dark);
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-    color: var(--text-main);
-}
-
-.logo-icon { font-size: 1.4rem; }
 .logo-text {
     font-family: var(--font-brand);
     font-weight: 800;
     font-size: 1.15rem;
     letter-spacing: 0.15em;
     color: var(--gold-light);
+    transition: color 0.5s var(--ease-luxury);
+}
+
+.navbar.scrolled .logo-text {
+    color: var(--text-dark);
 }
 
 .nav-links { display: flex; gap: 2.2rem; }
@@ -174,9 +160,16 @@ body {
     letter-spacing: 0.05em;
     color: var(--text-muted);
     text-decoration: none;
-    transition: color var(--transition-fast);
+    transition: color 0.5s var(--ease-luxury);
 }
 .nav-item:hover, .nav-item.active { color: var(--gold-primary); }
+
+.navbar.scrolled .nav-item {
+    color: var(--text-dark);
+}
+.navbar.scrolled .nav-item:hover, .navbar.scrolled .nav-item.active {
+    color: var(--gold-dark);
+}
 
 .nav-cart-btn {
     background: var(--bg-yellow);
