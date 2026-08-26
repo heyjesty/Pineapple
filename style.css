@@ -140,6 +140,24 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.logo-icon { font-size: 1.4rem; }
 .logo-text {
     font-family: var(--font-brand);
     font-weight: 800;
@@ -153,11 +171,16 @@ body {
     color: var(--text-dark);
 }
 
-.nav-links { display: flex; gap: 2.2rem; }
+.nav-links { 
+    display: flex; 
+    align-items: center;
+    gap: 2.5rem; 
+    margin-left: auto;
+}
 .nav-item {
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.5s var(--ease-luxury);
@@ -169,29 +192,6 @@ body {
 }
 .navbar.scrolled .nav-item:hover, .navbar.scrolled .nav-item.active {
     color: var(--gold-dark);
-}
-
-.nav-cart-btn {
-    background: var(--bg-yellow);
-    border: none;
-    color: var(--text-dark);
-    font-family: var(--font-brand);
-    font-weight: 800;
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    padding: 0.6rem 1.25rem;
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    box-shadow: 0 6px 20px rgba(244, 196, 48, 0.35);
-}
-
-.nav-cart-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(244, 196, 48, 0.5);
 }
 
 .cart-badge {

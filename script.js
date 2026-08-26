@@ -298,10 +298,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const heroSection = document.getElementById('hero');
-    
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-item');
+
     function updateNavbarTheme() {
         if (!navbar) return;
-        // Calculate the exact bottom offset of the Hero section (minus navbar height threshold)
         const heroBottom = heroSection ? (heroSection.offsetTop + heroSection.offsetHeight - 100) : (window.innerHeight * 3.5);
         
         if (window.scrollY >= heroBottom) {
@@ -309,6 +310,26 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // Active Nav Link Scroll Spy
+        let currentId = 'hero';
+        const scrollPos = window.scrollY + 250;
+
+        sections.forEach(sec => {
+            const top = sec.offsetTop;
+            const height = sec.offsetHeight;
+            if (scrollPos >= top && scrollPos < top + height) {
+                currentId = sec.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            const href = item.getAttribute('href');
+            if (href === `#${currentId}`) {
+                item.classList.add('active');
+            }
+        });
     }
 
     window.addEventListener('scroll', updateNavbarTheme);
