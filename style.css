@@ -781,16 +781,157 @@ body {
 .float-gentle { animation: floatGentle 5s ease-in-out infinite alternate; }
 @keyframes floatGentle { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
 
-/* Mobile Responsiveness */
+/* --------------------------------------------------------------------------
+   18. MOBILE NAVIGATION TOGGLE & DRAWER MENU STYLES
+   -------------------------------------------------------------------------- */
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    padding: 0;
+    z-index: 102;
+}
+
+.mobile-menu-toggle .bar {
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--gold-light);
+    border-radius: 2px;
+    transition: all 0.3s var(--ease-luxury);
+}
+
+.navbar.scrolled .mobile-menu-toggle .bar {
+    background-color: var(--text-dark);
+}
+
+.mobile-menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   19. RESPONSIVE BREAKPOINTS (<1024px, <768px, <480px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-    .grid-intro-light, .asymmetric-specs-wrapper, .buy-card-inner, .grid-taste-light, .grid-purchase { grid-template-columns: 1fr; gap: 3rem; }
+    .container { padding: 0 1.25rem; }
+    
+    /* Header & Mobile Menu Drawer */
+    .mobile-menu-toggle { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 85%; max-width: 320px;
+        height: 100vh;
+        background: rgba(10, 12, 16, 0.98);
+        backdrop-filter: blur(25px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.2rem;
+        transition: right 0.4s var(--ease-luxury);
+        box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+        z-index: 101;
+    }
+    
+    .nav-links.mobile-open {
+        right: 0;
+    }
+    
+    .nav-item {
+        font-size: 1.25rem;
+        color: #FFFFFF;
+    }
+
+    /* Layout Stacks */
+    .grid-intro-light, .asymmetric-specs-wrapper, .buy-card-inner, .grid-taste-light, .grid-purchase { 
+        grid-template-columns: 1fr; 
+        gap: 2.5rem; 
+    }
+    
     .qualities-grid { grid-template-columns: repeat(2, 1fr); }
-    .info-dossier-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .info-dossier-grid { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.25rem; }
     .callout-light { display: none; }
+
+    .intro-actions-light {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .intro-actions-light .btn-yellow-solid, .intro-actions-light .btn-outline-dark {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
-    .sec-light, .sec-cream, .sec-yellow-full { padding: 4.5rem 0; }
-    .qualities-grid { grid-template-columns: 1fr; }
+    /* Hero Mobile Adaptations */
+    .hero-text-block {
+        max-width: 95%;
+        padding: 0;
+    }
+
+    .pos-top-left { top: 85px; left: 1rem; right: 1rem; transform: translateY(-10px); }
+    .pos-bottom-left { bottom: 30px; left: 1rem; right: 1rem; top: auto; transform: translateY(10px); }
+    .pos-top-right { top: 85px; right: 1rem; left: 1rem; transform: translateY(-10px); text-align: left; }
+    .pos-bottom-right { bottom: 30px; right: 1rem; left: 1rem; top: auto; transform: translateY(10px); text-align: left; }
+
+    .headline-hero-title {
+        font-size: clamp(2rem, 7vw, 2.8rem);
+    }
+
+    .hero-feature-title {
+        font-size: clamp(1.4rem, 5vw, 2.1rem);
+    }
+
+    .hero-lead, .hero-feature-desc {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Section Paddings */
+    .sec-light, .sec-cream, .sec-yellow-full { padding: 4rem 0; }
+
+    /* Buy Card & Forms */
+    .buy-card-inner { padding: 2rem 1.25rem; gap: 2rem; }
+    .buy-product-title { font-size: 2rem; }
+    .buy-price { font-size: 2.6rem; }
+    .price-big-display { font-size: 3.8rem; }
+    
+    .buy-features-micro { flex-wrap: wrap; gap: 0.75rem; }
+
+    /* Qualities & Pipeline */
+    .qualities-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .t-step-item { grid-template-columns: 1fr; padding: 1.75rem 1.25rem; gap: 1.5rem; }
+
+    /* Cart Summary Box */
+    .cart-summary-box { padding: 2rem 1.25rem; width: 100%; }
+    .cart-item-row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .cart-item-info { width: 100%; }
+    .cart-item-price { font-size: 1.4rem; }
+
+    /* Footer */
     .footer-grid-light { flex-direction: column; gap: 2rem; text-align: center; }
+    .footer-links-light { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+    .headline-hero-title { font-size: 1.85rem; }
+    .btn-yellow-solid, .btn-outline-dark { width: 100%; justify-content: center; }
+    .attributes-grid-light { grid-template-columns: 1fr; }
+    .purchase-trust-row { flex-direction: column; gap: 0.5rem; }
+    .subtotal-row { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 }

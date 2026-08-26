@@ -276,9 +276,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ----------------------------------------------------------------------
-       3. NAVBAR SCROLL BACKGROUND & ACTIVE LINK ENGINE
+       3. NAVBAR SCROLL BACKGROUND, MOBILE MENU & ACTIVE LINK ENGINE
        ---------------------------------------------------------------------- */
     const navbar = document.getElementById('navbar');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('mobile-open');
+        });
+
+        // Close menu when clicking link
+        navLinks.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('mobile-open');
+            });
+        });
+    }
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 80) {
             navbar.classList.add('scrolled');
